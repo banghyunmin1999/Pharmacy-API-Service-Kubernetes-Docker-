@@ -1,0 +1,36 @@
+# Python bytecode
+__pycache__/
+*.py[cod]
+*.pyo
+
+# 환경 변수 파일
+.env
+
+# IDE 설정 (VSCode, PyCharm 등)
+.vscode/
+.idea/
+
+# Jupyter notebook 체크포인트 (혹시 Colab에서 사용 시)
+.ipynb_checkpoints
+
+# OS 파일
+.DS_Store
+Thumbs.db
+
+# 로그파일
+*.log
+
+# Docker
+*.tar
+*.img
+
+# Pipenv / Poetry (사용 시)
+Pipfile.lock
+poetry.lock
+
+# Kubernetes 설정 중 임시 파일
+*.yaml~
+
+# Test / temp output
+output/
+tmp/

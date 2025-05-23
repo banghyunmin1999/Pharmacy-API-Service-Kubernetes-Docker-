@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>서울시 약국 정보</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    h1 { color: #2c3e50; }
+    ul { list-style: none; padding: 0; }
+    li { padding: 5px 0; border-bottom: 1px solid #ccc; }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <h1>서울시 약국 목록</h1>
+  <button id="loadBtn">약국 정보 불러오기</button>
+  <ul id="pharmacyList"></ul>
+
+  <script>
+    $("#loadBtn").on("click", function() {
+      $("#pharmacyList").html("<li>불러오는 중...</li>");
+
+      $.get("/api/startCollecting", function(data) {
+        $("#pharmacyList").empty();
+
+        data.forEach(function(item) {
+          $("#pharmacyList").append(
+            `<li>[${item.지역}] ${item.dutyName} - ${item.dutyAddr}</li>`
+          );
+        });
+      }).fail(function() {
+        $("#pharmacyList").html("<li>🚫 데이터 불러오기 실패</li>");
+      });
+    });
+  </script>
+</body>
+</html>

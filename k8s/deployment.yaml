@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pharmacy-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pharmacy-api
+  template:
+    metadata:
+      labels:
+        app: pharmacy-api
+    spec:
+      containers:
+      - name: pharmacy-api
+        image: banghyunmin1999/pharmacy-api:latest  # ✅ Docker Hub 이미지 경로
+        ports:
+        - containerPort: 5000
+        env:
+        - name: API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: pharmacy-secret
+              key: API_KEY
+
+

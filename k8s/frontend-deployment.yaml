@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pharmacy-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+      - name: pharmacy-frontend
+        image: banghyunmin1999/pharmacy-frontend:latest  # 🔥 프론트 이미지
+        ports:
+        - containerPort: 80
+

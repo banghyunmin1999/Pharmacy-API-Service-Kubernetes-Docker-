@@ -1,0 +1,17 @@
+apiVersion: metallb.io/v1beta1
+kind: IPAddressPool
+metadata:
+  name: pharmacy-ip-pool
+  namespace: metallb-system
+spec:
+  addresses:
+    - 192.168.56.240-192.168.56.250  # ⚠️ 너의 VirtualBox 네트워크 범위 확인 후 사용
+
+---
+apiVersion: metallb.io/v1beta1
+kind: L2Advertisement
+metadata:
+  name: pharmacy-adv
+  namespace: metallb-system
+
+

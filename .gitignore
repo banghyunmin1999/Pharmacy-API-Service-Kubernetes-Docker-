@@ -34,3 +34,5 @@ poetry.lock
 # Test / temp output
 output/
 tmp/
+
+docs/noGit
